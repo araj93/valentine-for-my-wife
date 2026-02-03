@@ -3,67 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Be My Valentine, Shruti ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<title>Be My Valentine ❤️</title>
 
 <style>
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
     }
 
     body {
         height: 100vh;
-        background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
     }
 
     .card {
-        background: #fff;
-        padding: 45px 35px;
-        border-radius: 25px;
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
         text-align: center;
-        box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         max-width: 90%;
-        width: 360px;
-        animation: fadeIn 1.2s ease;
+        width: 350px;
     }
 
     h1 {
-        font-family: 'Playfair Display', serif;
-        color: #e63946;
-        margin-bottom: 35px;
-        font-size: 28px;
+        color: #ff4b6e;
+        margin-bottom: 30px;
     }
 
     .buttons {
         position: relative;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
+        height: 100px;
     }
 
     button {
-        padding: 12px 30px;
-        border-radius: 30px;
+        padding: 12px 25px;
         border: none;
+        border-radius: 30px;
         font-size: 16px;
         cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 600;
+        transition: 0.3s;
     }
 
     #yesBtn {
-        background: linear-gradient(135deg, #ff4b6e, #ff758c);
-        color: #fff;
-        box-shadow: 0 10px 25px rgba(255,75,110,0.4);
+        background: #ff4b6e;
+        color: white;
     }
 
     #yesBtn:hover {
@@ -71,46 +61,35 @@
     }
 
     #noBtn {
-        background: #f1f1f1;
-        color: #555;
         position: absolute;
+        background: #ddd;
+        color: #333;
+        left: 180px;
     }
 
-    /* Love page */
+    /* Second page */
     .love-page {
         display: none;
         flex-direction: column;
         align-items: center;
-        text-align: center;
+        justify-content: center;
         color: white;
-        animation: fadeIn 1.5s ease;
-    }
-
-    .boy-image {
-        width: 200px;
-        margin-bottom: 25px;
-        animation: bounce 1s infinite;
+        text-align: center;
     }
 
     .love-page h2 {
-        font-family: 'Playfair Display', serif;
         font-size: 40px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
-    .love-page p {
-        font-size: 18px;
-        opacity: 0.95;
+    .boy {
+        font-size: 80px;
+        animation: bounce 1s infinite;
     }
 
     @keyframes bounce {
         0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-12px); }
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        50% { transform: translateY(-15px); }
     }
 </style>
 </head>
@@ -118,17 +97,17 @@
 <body>
 
 <div class="card" id="questionCard">
-    <h1>Will you be my Valentine? 💖</h1>
+    <h1>Will you be my Valentine? 💘</h1>
     <div class="buttons">
         <button id="yesBtn">Yes ❤️</button>
-        <button id="noBtn">No 🙈</button>
+        <button id="noBtn">No 😜</button>
     </div>
 </div>
 
 <div class="love-page" id="lovePage">
-    <img src="images/happy-boy.png" class="boy-image" alt="Happy Boy">
+    <div class="boy">🥰</div>
     <h2>I Love You ❤️</h2>
-    <p>Forever grateful that you are mine.</p>
+    <p>You make my life beautiful every day.</p>
 </div>
 
 <script>
@@ -137,15 +116,11 @@
     const card = document.getElementById("questionCard");
     const lovePage = document.getElementById("lovePage");
 
-    const positions = [
-        { x: -110, y: 0 },
-        { x: 110, y: 0 },
-        { x: 0, y: -40 }
-    ];
-
     noBtn.addEventListener("mouseover", () => {
-        const move = positions[Math.floor(Math.random() * positions.length)];
-        noBtn.style.transform = `translate(${move.x}px, ${move.y}px)`;
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 100);
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
     });
 
     yesBtn.addEventListener("click", () => {
